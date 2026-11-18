@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voz Estudantil - Login</title>
+
+    <style>
+        body {
+            background-color: #edf2fc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 15px;
+        }
+
+        .login {
+            background-color: white;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #3155a4;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        input, select {
+            padding: 10px;
+            width: 90%;
+            max-width: 350px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #3155a4;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #203c7c;
+        }
+
+        a {
+            color: #3155a4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #mensagem {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+
+        <h1>Voz Estudantil</h1>
+
+        <h2>A sua voz pode transformar a escola!</h2>
+
+        <p>
+            Entre na plataforma para publicar reivindicações,
+            apoiar demandas de outros estudantes e acompanhar
+            as principais necessidades da sua comunidade escolar.
+        </p>
+
+        <hr>
+
+        <h2>Entrar na conta</h2>
+
+        <form id="formLogin">
+
+            <label for="email">E-mail:</label>
+            <br>
+            <input type="email" id="email" name="email"
+                   placeholder="Digite seu e-mail" required>
+
+            <br><br>
+
+            <label for="senha">Senha:</label>
+            <br>
+            <input type="password" id="senha" name="senha"
+                   placeholder="Digite sua senha" required>
+
+            <br><br>
+
+            <label for="tipoUsuario">Tipo de usuário:</label>
+            <br>
+
+            <select id="tipoUsuario" name="tipoUsuario" required>
+                <option value="">Selecione seu perfil</option>
+                <option value="aluno">Aluno</option>
+                <option value="administrador">
+                    Administrador da instituição
+                </option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Entrar</button>
+
+        </form>
+
+        <p id="mensagem" role="status"></p>
+
+        <p>
+            Ainda não tem uma conta?
+            <a href="cadastro.html">Cadastre-se</a>
+        </p>
+
+        <p>
+            <a href="recuperar-senha.html">Esqueci minha senha</a>
+        </p>
+
+        <p><small>Protótipo demonstrativo. Use apenas dados fictícios.</small></p>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("formLogin");
+        const mensagem = document.getElementById("mensagem");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const tipoUsuario =
+                document.getElementById("tipoUsuario").value;
+
+            if (tipoUsuario === "aluno") {
+                mensagem.textContent =
+                    "Login demonstrativo de aluno. A autenticação ainda será implementada.";
+            } else if (tipoUsuario === "administrador") {
+                mensagem.textContent =
+                    "Login demonstrativo de administrador. O acesso deverá ser validado pelo sistema.";
+            }
+        });
+    </script>
+
+</body>
+</html>
